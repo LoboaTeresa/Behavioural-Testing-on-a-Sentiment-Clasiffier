@@ -8,6 +8,7 @@ from typing import Tuple, Optional
 import numpy as np
 import pandas as pd
 from pathlib import Path
+import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
@@ -15,6 +16,9 @@ from sklearn.utils import resample
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Define stopwords and lemmatizer
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('wordnet')
 stpwrd = stopwords.words('english')
 stpwrd.extend(string.punctuation)  # add punctuation symbols to stopwords: '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 stpwrd.extend(['rt', 'co', 'https', 'http', 'amp', 'us'])  # add common twitter terms to stopwords
