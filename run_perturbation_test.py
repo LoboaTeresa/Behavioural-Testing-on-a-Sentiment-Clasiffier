@@ -97,7 +97,7 @@ def write_test_results(accuracy_orig: float, accuracy_typo: float, diff_rate: fl
 
 # Paths
 test_path = './data/test.csv'
-model_name = 'RandomForestClassifier' # Options: LinearSVC, LogisticRegression
+model_name = 'LinearSVC' # Options: LinearSVC, LogisticRegression, RandomForestClassifier
 
 # Read test data
 test_df = pd.read_csv(test_path)
