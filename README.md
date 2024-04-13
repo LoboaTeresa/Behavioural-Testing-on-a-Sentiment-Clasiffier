@@ -34,7 +34,7 @@ In this project we present the code to predict an individual's belief about clim
 
 - Information about the dataset and data processing performed: ```data/README.md``` and ```docs/processed/data_processing.ipynb```
 - Benchmarking of the model: ```docs/processed/sentiment_analysis_guide.ipynb```
-- Perturbation test: ```docs/processed/perturbation_test.ipynb``` We will asses the robustness of our classifier to typos in our dataset.
+- Perturbation test: ```run_perturbation_test.py``` will asses the robustness of our classifier to typos in our dataset.
 
 ## 🛠️ Set up
 
@@ -47,7 +47,7 @@ python --version
 
 2. Clone the repository:
 ```bash
-git clone ...
+git clone https://github.com/LoboaTeresa/Behavioural-Testing-on-a-Sentiment-Clasiffier.git
 ```
 
 3. Install the required packages:
