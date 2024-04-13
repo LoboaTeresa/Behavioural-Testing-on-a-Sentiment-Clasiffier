@@ -26,9 +26,9 @@ jobs:
           python run_perturbation_test.py
 
           # Print out the failure modes
-          #echo "## Failure modes" >> report.md
-          #git fetch --prune
-          #cat failure_modes.txt >> report.md
+          echo "## Failure modes" >> report.md
+          git fetch --prune
+          cat failure_modes.txt >> report.md
           
           # Send it!
-          #cml-send-comment report.md
+          cml-send-comment report.md
