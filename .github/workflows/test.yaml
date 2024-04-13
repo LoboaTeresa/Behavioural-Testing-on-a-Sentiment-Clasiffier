@@ -1,5 +1,7 @@
 name: perturbation-test
-on: [push]
+on: 
+  push:
+    branches: [ main ]
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -17,9 +19,10 @@ jobs:
         run: |
           echo "Running Perturbation Test"
           python run_perturbation_test.py
-          
+
           # Print out the failure modes
           echo "## Failure modes" >> report.md
+          git fetch --prune
           cat failure_modes.txt >> report.md
           
           # Send it!
