@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          sudo -H pip install -r requirements.txt
 
       - name: Run Perturbation Test
         run: |
