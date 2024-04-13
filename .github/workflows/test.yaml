@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python version
         uses: actions/setup-python@v2
@@ -22,8 +24,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Perturbation Test
-        env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Running Perturbation Test"
           python run_perturbation_test.py
