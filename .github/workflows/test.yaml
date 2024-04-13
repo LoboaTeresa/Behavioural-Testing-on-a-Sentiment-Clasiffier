@@ -23,8 +23,7 @@ jobs:
       - name: Run Perturbation Test
         run: |
           echo "Running Perturbation Test"
-          python test.py
-          #python run_perturbation_test.py
+          python run_perturbation_test.py
 
           # Print out the failure modes
           #echo "## Failure modes" >> report.md

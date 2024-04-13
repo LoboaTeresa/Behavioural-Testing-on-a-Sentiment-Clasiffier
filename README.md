@@ -70,7 +70,7 @@ Learning journey on Github Actions: click [here](https://resources.github.com/le
 
 2. Click on Actions in the top bar of your repository to check pre-built workflows. As you can see Github actions offers a very easy integratios with different tools, something indespensable for CI/CD tool.
 
-3. Your automated workflows must be defined in ```.github/workflows/test.yaml``` file. You can change the name of the file, but it must be inside the ```.github/workflows``` folder. Check out mine.
+3. Your automated workflows must be defined in a Github actions configuration file in```.github/workflows``` directory. It must by a yaml file. Check out mine.
 
 4. You can modify the name of the job, the name of the workflow, the name of the python version, the name of the test, etc. You can also add more jobs to the workflow.
 
