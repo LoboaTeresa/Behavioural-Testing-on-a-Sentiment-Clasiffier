@@ -255,9 +255,9 @@ def pre_process_data(data_df: pd.DataFrame,
         tr_feats = tfidf.fit_transform(clean_df['clean_message'])
         # Save the TfidfVectorizer object to a file
         # if path exists
-        save_path = main_directory + '/models/tfidf_vectorizer.pkl'
+        save_path = main_directory + '/data/tfidf_vectorizer.pkl'
         if not os.path.exists(save_path):
-            save_path = "./models/tfidf_vectorizer.pkl"
+            save_path = "./data/tfidf_vectorizer.pkl"
     
         with open(save_path, 'wb') as f:
             pickle.dump(tfidf, f)
@@ -265,9 +265,9 @@ def pre_process_data(data_df: pd.DataFrame,
     else:
         # Load the saved TfidfVectorizer object from the file
         # check if is file
-        vector_path = main_directory + "/models/tfidf_vectorizer.pkl"
+        vector_path = main_directory + "/data/tfidf_vectorizer.pkl"
         if not os.path.isfile(vector_path):
-            vector_path = "models/tfidf_vectorizer.pkl"
+            vector_path = "data/tfidf_vectorizer.pkl"
         with open(vector_path, 'rb') as f:
             tfidf = pickle.load(f)
         # Use the loaded TfidfVectorizer object to transform the individual tweet
