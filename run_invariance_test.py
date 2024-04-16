@@ -5,7 +5,6 @@ import random
 from pathlib import Path
 import pandas as pd
 from sklearn.metrics import accuracy_score
-import nlpaug.augmenter.char as nac
 
 from src.pre_process_data import pre_process_data
 
