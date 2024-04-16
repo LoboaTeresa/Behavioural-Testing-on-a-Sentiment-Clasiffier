@@ -1,5 +1,6 @@
 import pickle
 import json
+import random
 
 from pathlib import Path
 import pandas as pd
@@ -11,7 +12,7 @@ from src.pre_process_data import pre_process_data
 # Define text perturbation
 aug = nac.KeyboardAug(aug_word_max=1) # Insert realistic keystroke errors
 
-def apply_typo(input_text: str) -> str:
+def apply_typo(text:str, typo_rate:float = 0.1) -> str:
     """Apply a typo to the input text.
 
     Args:
@@ -20,8 +21,18 @@ def apply_typo(input_text: str) -> str:
     Returns:
         str: The text with a typo applied.
     """
-    output = aug.augment(input_text)
-    return output[0]
+    # List of characters that can be used for substitutions
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    
+    # Introduce typos with the specified rate
+    typo_text = ''
+    for char in text:
+        if char.isalpha() and random.random() < typo_rate:
+            # Introduce a typo by randomly selecting a character from the alphabet
+            typo_text += random.choice(alphabet.replace(char.lower(), ''))
+        else:
+            typo_text += char
+    return typo_text
 
 def load_model(model_path: str):
     """Load a machine learning model from a file.
