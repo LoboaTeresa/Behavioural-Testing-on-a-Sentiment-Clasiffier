@@ -1,4 +1,4 @@
-name: perturbation-test
+name: invariance-test
 on: 
   push:
     branches:
@@ -6,7 +6,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    container: docker://dvcorg/cml-py3:latest
+     container: docker://dvcorg/cml-py3:latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -15,17 +15,17 @@ jobs:
 
       - name: Set up Python version
         uses: actions/setup-python@v2
-        with:
-          python-version: '3.11'
+        #with:
+        #  python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          sudo -H pip install -r requirements.txt
+          pip install -r requirements.txt
 
-      - name: Run Perturbation Test
+      - name: Run Invariance Test
         run: |
-          echo "Running Perturbation Test"
-          python run_perturbation_test.py
+          echo "Running Invariance Test"
+          python run_invariance_test.py
 
           # Print out the failure modes
           echo "## Failure modes" >> report.md
