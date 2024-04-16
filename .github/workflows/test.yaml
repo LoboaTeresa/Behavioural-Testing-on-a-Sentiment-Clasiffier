@@ -6,17 +6,17 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    container: docker://dvcorg/cml-py3:latest
+    #container: docker://dvcorg/cml-py3:latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        #env:
+        #  repo_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python version
         uses: actions/setup-python@v2
-        #with:
-        #  python-version: '3.11'
+        with:
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
