@@ -1,28 +1,33 @@
-name: perturbation-test
-on: [push]
+name: invariance-test
+on: 
+  push:
+    branches:
+      - main
 jobs:
   run:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
     container: docker://dvcorg/cml-py3:latest
     steps:
-      - uses: actions/checkout@v2
-      - name: cml_run
+      - name: Checkout code
+        uses: actions/checkout@v2
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-        run: |
 
-          # Run the test
+      - name: Set up Python version
+        uses: actions/setup-python@v2
+        #with:
+        #  python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
           pip install -r requirements.txt
-          python run_perturbation_test.py
-          
-          # Report the diff
-          echo "## Workspace vs. Main" > report.md
-          git fetch --prune
-          dvc metrics diff main --targets test_score.json --show-md >> report.md
-          
+
+      - name: Run Invariance Test
+        run: |
+          echo "Running Invariance Test"
+          python run_invariance_test.py
+
           # Print out the failure modes
           echo "## Failure modes" >> report.md
+          git fetch --prune
           cat failure_modes.txt >> report.md
-          
-          # Send it!
-          cml-send-comment report.md

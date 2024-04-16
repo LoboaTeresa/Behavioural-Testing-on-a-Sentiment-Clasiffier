@@ -1,8 +1,5 @@
-nlpaug
-#nltk==3.8
+nltk
 numpy
 pandas
 scikit_learn
 pathlib
-tabulate
-transformers
