@@ -8,9 +8,6 @@ from sklearn.metrics import accuracy_score
 
 from src.pre_process_data import pre_process_data
 
-# Define text perturbation
-aug = nac.KeyboardAug(aug_word_max=1) # Insert realistic keystroke errors
-
 def apply_typo(text:str, typo_rate:float = 0.1) -> str:
     """Apply a typo to the input text.
 
