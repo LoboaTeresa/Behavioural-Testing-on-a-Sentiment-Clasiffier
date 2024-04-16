@@ -1,6 +1,6 @@
 # 🧪 Behavioural Testing on a Sentiment Clasiffier 🔬
 
-Check how robust a sentiment classifier is to random typos in our dataset using Github Actions.
+Check how robust a sentiment classifier is to random typos in our dataset using Github Actions and invariance testing.
 
 ## 🗃️ Table of contents
 
@@ -34,7 +34,7 @@ In this project we present the code to predict an individual's belief about clim
 
 - Information about the dataset and data processing performed: ```data/README.md``` and ```docs/processed/data_processing.ipynb```
 - Benchmarking of the model: ```docs/processed/sentiment_analysis_guide.ipynb```
-- Perturbation test: ```run_perturbation_test.py``` will asses the robustness of our classifier to typos in our dataset.
+- Invariance test: ```run_invariance_test.py``` will asses the robustness of our classifier to typos in our dataset.
 
 ## 🛠️ Set up
 
